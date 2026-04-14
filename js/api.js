@@ -1,4 +1,4 @@
-const BACKEND_URL = 'https://backend-inventory-management-system.onrender.com';
+const BACKEND_URL = 'https://backend-inventory-management-system.onrender.com/api';
 
 class API {
     static getToken() {
