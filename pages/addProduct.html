@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - NexStock</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-icon align-center" style="font-size: 2rem; margin-bottom:0;">📦</div>
+            <h2 class="text-gradient align-center" style="font-size: 1.5rem;">NexStock</h2>
+            
+            <ul class="nav-links">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="addProduct.html" class="active">➕ Add Product</a></li>
+                <li><a href="manageStock.html">📦 Manage Stock</a></li>
+                <li style="margin-top: auto;"><a href="#" id="logoutBtn" style="color: var(--danger-color);">🚪 Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content fade-in">
+            <header class="top-header">
+                <div>
+                    <h1>Adding New Product</h1>
+                    <p class="text-muted">Register a new item into the inventory catalogue.</p>
+                </div>
+            </header>
+
+            <div class="glass-panel" style="max-width: 600px;">
+                <form id="addProductForm" class="form-group">
+                    <div class="input-container">
+                        <label for="prodName">Product Name</label>
+                        <input type="text" id="prodName" required placeholder="e.g. Wireless Mouse">
+                    </div>
+
+                    <div style="display: flex; gap: 1rem;">
+                        <div class="input-container" style="flex: 1;">
+                            <label for="prodPrice">Price ($)</label>
+                            <input type="number" id="prodPrice" step="0.01" min="0" required placeholder="0.00">
+                        </div>
+                        <div class="input-container" style="flex: 1;">
+                            <label for="prodQty">Initial Quantity</label>
+                            <input type="number" id="prodQty" min="0" required placeholder="0">
+                        </div>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="prodDesc">Description (Optional)</label>
+                        <textarea id="prodDesc" rows="3" placeholder="Brief details..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Save Product</button>
+                    <div id="addProductMsg" class="hide mt-tight"></div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            UI.initAddProduct();
+        });
+    </script>
+</body>
+</html>

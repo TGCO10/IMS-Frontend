@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NexStock</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-icon align-center" style="font-size: 2rem; margin-bottom:0;">📦</div>
+            <h2 class="text-gradient align-center" style="font-size: 1.5rem;">NexStock</h2>
+            
+            <ul class="nav-links">
+                <li><a href="dashboard.html" class="active">📊 Dashboard</a></li>
+                <li><a href="addProduct.html">➕ Add Product</a></li>
+                <li><a href="manageStock.html">📦 Manage Stock</a></li>
+                <li style="margin-top: auto;"><a href="#" id="logoutBtn" style="color: var(--danger-color);">🚪 Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content fade-in">
+            <header class="top-header">
+                <div>
+                    <h1>Dashboard Overview</h1>
+                    <p class="text-muted">Welcome back! Here's your inventory status.</p>
+                </div>
+                <div id="userInfo" class="badge ok">Admin</div>
+            </header>
+
+            <div class="stats-grid">
+                <div class="glass-panel stat-card">
+                    <span class="title">Total Products</span>
+                    <span class="value" id="statTotalProducts">...</span>
+                </div>
+                <div class="glass-panel stat-card">
+                    <span class="title">Total Stock Items</span>
+                    <span class="value" id="statTotalStock">...</span>
+                </div>
+                <div class="glass-panel stat-card">
+                    <span class="title">Total Value</span>
+                    <span class="value" id="statTotalValue">...</span>
+                </div>
+                <div class="glass-panel stat-card" style="border-left: 3px solid var(--danger-color);">
+                    <span class="title">Low Stock Alerts</span>
+                    <span class="value" style="color: #fca5a5" id="statLowStock">...</span>
+                </div>
+            </div>
+
+            <div class="glass-panel mt-loose">
+                <h3 style="margin-bottom: 1rem;">Recent Product List</h3>
+                <div class="table-container">
+                    <table id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <tr><td colspan="4" class="align-center">Loading Data...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            UI.initDashboard();
+        });
+    </script>
+</body>
+</html>
